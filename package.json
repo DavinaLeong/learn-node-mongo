@@ -1,0 +1,40 @@
+{
+  "name": "learn-node-mongo",
+  "version": "0.0.0",
+  "description": "Learn Node Mongodb with REST",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavinaLeong/learn-node-mongo.git"
+  },
+  "keywords": [
+    "learn",
+    "mongodb",
+    "node",
+    "mongoose",
+    "nodemon",
+    "express",
+    "body",
+    "parser",
+    "davina",
+    "leong",
+    "rest",
+    "api"
+  ],
+  "author": "Davina Leong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavinaLeong/learn-node-mongo/issues"
+  },
+  "homepage": "https://github.com/DavinaLeong/learn-node-mongo#readme",
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.13",
+    "nodemon": "^1.18.4"
+  }
+}
