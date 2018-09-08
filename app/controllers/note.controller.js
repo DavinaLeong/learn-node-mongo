@@ -26,7 +26,7 @@ module.exports = {
     },
 
     findAll: (req, res) => {
-        Note.findAll()
+        Note.find()
             .then(notes => {
                 res.send(notes)
             })
@@ -45,6 +45,7 @@ module.exports = {
                         message: `Note of id ${req.params.noteId} not found.`
                     });
                 }
+                res.send(note);
             })
             .catch(err => {
                 if (err.kind === 'ObjectId') {
@@ -92,24 +93,22 @@ module.exports = {
     },
 
     delete: (req, res) => {
-        Note.findByIdAndRemove(req.params.noteId)
+        Note.findByIdAndDelete(req.params.noteId)
             .then(note => {
-                if (! note) {
+                if(!note) {
                     return res.status(404).send({
                         message: `Note of id ${req.params.noteId} not found.`
                     });
                 }
-                res.send({ message: `Note of id ${req.params.noteId} deleted.` });
-            })
-            .catch(err => {
-                if (err.kind === 'ObjectId' || err.name === 'NotFound') {
+                res.send({message: `Deleted note of id ${res.params.noteId}`});
+            }).catch(err => {
+                if(err.kind === 'ObjectId' || err.name === 'NotFound') {
                     return res.status(404).send({
                         message: `Note of id ${req.params.noteId} not found.`
-                    });
+                    });                
                 }
-
                 return res.status(500).send({
-                    message: `An error occurred while deleting note of id ${req.params.noteId}.`
+                    message: err.message || `An error occurred while deleting note of id ${req.params.noteId}.`
                 });
             });
     }

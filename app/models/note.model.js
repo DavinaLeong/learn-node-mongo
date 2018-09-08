@@ -1,6 +1,6 @@
-const mongoose = require('mongosse');
+const mongoose = require('mongoose');
 
-const NoteSchema = mongoose.schema({
+const NoteSchema = mongoose.Schema({
     title: String,
     content: String
 }, {
