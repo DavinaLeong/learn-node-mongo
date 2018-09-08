@@ -36,6 +36,8 @@ app.get('/', (req, res) => {
     res.json({ "message": "Welcome to Easy Notes API." });
 });
 
+
+require('./app/routes/note.routes')(app);
 app.listen(databaseConfig.port, () => {
     console.log(`Server started on port ${databaseConfig.port}.`);
 });
