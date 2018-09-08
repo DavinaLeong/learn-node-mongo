@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 });
 
 
-require('./app/routes/note.routes')(app);
+require('./app/note/note.routes')(app);
 app.listen(databaseConfig.port, () => {
     console.log(`Server started on port ${databaseConfig.port}.`);
 });
