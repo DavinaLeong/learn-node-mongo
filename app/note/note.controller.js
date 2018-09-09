@@ -95,20 +95,20 @@ module.exports = {
     delete: (req, res) => {
         Note.findByIdAndDelete(req.params.noteId)
             .then(note => {
-                if(!note) {
+                if (! note) {
                     return res.status(404).send({
-                        message: `Note of id ${req.params.noteId} not found.`
+                        message: `Note not found.`
                     });
                 }
                 res.send({message: `Deleted note of id ${res.params.noteId}`});
             }).catch(err => {
-                if(err.kind === 'ObjectId' || err.name === 'NotFound') {
+                if (err.kind === 'ObjectId' || err.name === 'NotFound') {
                     return res.status(404).send({
-                        message: `Note of id ${req.params.noteId} not found.`
+                        message: `Note not found.`
                     });                
                 }
                 return res.status(500).send({
-                    message: err.message || `An error occurred while deleting note of id ${req.params.noteId}.`
+                    message: err.message || `An error occurred while deleting note.`
                 });
             });
     }
